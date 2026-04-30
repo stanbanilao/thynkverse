@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🚀 Mr Telly • Live Progress Dashboard • April 2026</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Space+Grotesk:wght@500;600&display=swap');
+        body { font-family: 'Inter', system_ui, sans-serif; }
+        .font-display { font-family: 'Space Grotesk', sans-serif; }
+        
+        .progress-bar { height: 10px; background: linear-gradient(90deg, #14b8a6, #22d3ee); }
+        
+        .status-done, .status-half, .status-pending {
+            min-width: 138px; text-align: center; padding: 10px 16px;
+            border-radius: 9999px; font-weight: 600; cursor: pointer; transition: all 0.3s;
+        }
+        .status-done { background: #10b981; color: white; }
+        .status-half, .status-pending { background: #f59e0b; color: white; }
+        .status-half:hover, .status-pending:hover { transform: scale(1.05); }
+
+        .pillar-card { box-shadow: 0 0 30px -8px rgb(45 212 191 / 0.7); transition: all 0.4s ease; }
+        .pillar-card:hover { transform: translateY(-6px); }
+
+        .item-row { display: flex; align-items: center; justify-content: space-between; gap: 24px; }
+
+        .expandable-content {
+            max-height: 0; overflow: hidden; transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            background: #1e2937; border-radius: 16px; margin-top: 12px; padding: 0 16px;
+        }
+        .expandable-content.open { max-height: 320px; padding: 16px; }
+
+        .blink-red { animation: blinkRed 1.4s infinite alternate; }
+        @keyframes blinkRed { from { box-shadow: 0 0 15px #ef4444; } to { box-shadow: 0 0 50px #ef4444, 0 0 80px #b91c1c; } }
+
+        .countdown-numbers { font-size: 6.2rem; line-height: 1; font-weight: 700; color: #fcd34d; text-shadow: -6px -6px 0 #fff, 6px -6px 0 #fff, -6px 6px 0 #fff, 6px 6px 0 #fff; }
+        .countdown-label { font-size: 1.25rem; letter-spacing: 4px; text-transform: uppercase; color: #e0f2fe; margin-top: 8px; }
+    </style>
+</head>
+<body class="bg-slate-950 text-slate-200 min-h-screen">
+    <div class="max-w-7xl mx-auto px-4 md:px-6 py-8">
+        
+        <!-- Header -->
+        <div class="flex justify-center items-center mb-10">
+            <div class="text-center">
+                <h1 class="font-display text-6xl md:text-7xl tracking-tighter text-white">MR TELLY</h1>
+                <p class="text-teal-300 text-lg md:text-xl">Debt Review Removal Call Center • Live Progress Dashboard</p>
+            </div>
+        </div>
+
+        <!-- COUNTDOWN -->
+        <div id="countdown-section" class="bg-slate-900 border border-amber-600 rounded-3xl p-8 md:p-16 text-center mb-12">
+            <h2 class="font-display text-3xl md:text-4xl mb-8 text-amber-300">🚨 COUNTDOWN TO FULL OPENING</h2>
+            <div id="countdown-display" class="flex justify-center items-center gap-8 md:gap-12 flex-wrap"></div>
+        </div>
+
+        <!-- Core + Launch Box -->
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-12">
+            <div class="bg-slate-900 border border-teal-700 rounded-3xl p-8">
+                <h2 class="font-display text-3xl flex items-center gap-x-3 text-teal-300 mb-8">
+                    <i class="fa-solid fa-building"></i> Core Business Fundamentals
+                </h2>
+                <div onclick="toggleCore(this)" class="text-center text-orange-400 hover:text-orange-300 font-medium cursor-pointer py-3 border border-dashed border-orange-400 rounded-2xl">
+                    Click here to expand
+                </div>
+                <div id="core-content" class="expandable-content mt-4 text-sm leading-relaxed text-slate-300">
+                    <p class="mb-4 font-medium">Key people &amp; partners driving Mr Telly launch:</p>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs">
+                        <div>• Attorney – Legal &amp; NCR contracts</div>
+                        <div>• DC Partner – Debt Counsellor access</div>
+                        <div>• Marketing Lead / Supplier – Lead generation</div>
+                        <div>• HR / Trainer / Manager – Recruitment &amp; training</div>
+                        <div>• Landline &amp; Systems Provider – Telephony setup</div>
+                        <div>• MR Consultant – VAT &amp; payroll</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bg-slate-900 border border-teal-700 rounded-3xl p-8">
+                <h2 class="font-display text-3xl flex items-center gap-x-3 text-teal-300 mb-6">
+                    <i class="fa-solid fa-chart-line"></i> 90-Day Launch Plan
+                </h2>
+                <div class="flex justify-between items-center mb-6">
+                    <div>
+                        <div class="uppercase text-xs tracking-widest text-teal-400">PROGRESS</div>
+                        <div class="flex items-baseline gap-x-3">
+                            <div class="font-display text-6xl font-bold text-white">72</div>
+                            <div class="text-4xl text-teal-400">%</div>
+                        </div>
+                    </div>
+                    <div class="text-right">
+                        <div class="inline-flex items-center gap-x-2 px-6 py-2 bg-emerald-500/10 border border-emerald-400 text-emerald-400 rounded-3xl text-sm font-medium">
+                            <div class="w-3 h-3 bg-emerald-400 rounded-full animate-pulse"></div>
+                            ON TRACK
+                        </div>
+                        <div class="text-4xl font-display font-bold text-teal-400 mt-3">69</div>
+                        <div class="text-xs text-slate-500">days since 19 Feb 2026</div>
+                    </div>
+                </div>
+                <div class="h-2.5 bg-slate-800 rounded-3xl overflow-hidden mb-6">
+                    <div class="progress-bar w-[72%]"></div>
+                </div>
+                <div onclick="toggleLaunch(this)" class="text-center text-orange-400 hover:text-orange-300 font-medium cursor-pointer py-3 border border-dashed border-orange-400 rounded-2xl">
+                    Click here to expand
+                </div>
+                <div id="launch-content" class="expandable-content mt-4 text-sm leading-relaxed text-slate-300">
+                    The 90-day plan is the realistic cycle for launching a fully compliant debt review call center in South Africa. We are currently in the Build Phase with strong momentum.
+                </div>
+            </div>
+        </div>
+
+        <div class="h-px bg-gradient-to-r from-transparent via-slate-700 to-transparent my-12"></div>
+
+        <!-- ALL PILLARS -->
+        <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
+            <div class="pillar-card bg-slate-900 border border-slate-700 rounded-3xl p-6">
+                <div class="flex items-center gap-x-4 mb-8">
+                    <i class="fa-solid fa-gavel text-4xl text-teal-400"></i>
+                    <div class="font-display text-3xl tracking-tight">Legal &amp; Regulatory</div>
+                </div>
+                <div class="space-y-6 text-sm">
+                    <div class="item-row"><div class="item-text flex-1">CIPC Company Registration (Pty Ltd)</div><span class="status-done">✅ DONE</span></div>
+                    <div class="item-row"><div class="item-text flex-1">POPIA Compliance &amp; IO Registration</div><span class="status-done">✅ DONE</span></div>
+                    <div onclick="toggleSingleExpand(this)" class="item-row cursor-pointer"><div class="item-text flex-1">Registering MR Consultant (PAYE + UIF)</div><span class="status-pending">⏳ PENDING</span></div>
+                    <div class="expandable-content">Pending because the company needs to be registered for PAYE + UIF deduction for employees.</div>
+                    <div onclick="toggleSingleExpand(this)" class="item-row cursor-pointer"><div class="item-text flex-1">NCR DC Partnership Agreements</div><span class="status-pending">⏳ PENDING</span></div>
+                    <div class="expandable-content">This is the Service Agreement between MR Telly and the allocated Debt Counsellor.</div>
+                </div>
+            </div>
+
+            <div class="pillar-card bg-slate-900 border border-slate-700 rounded-3xl p-6">
+                <div class="flex items-center gap-x-4 mb-8">
+                    <i class="fa-solid fa-sitemap text-4xl text-teal-400"></i>
+                    <div class="font-display text-3xl tracking-tight">Company &amp; Branding</div>
+                </div>
+                <div class="space-y-6 text-sm">
+                    <div class="item-row"><div class="item-text flex-1">Website Live</div><span class="status-done">✅ DONE</span></div>
+                    <div class="item-row"><div class="item-text flex-1">Social Media (FB + IG)</div><span class="status-done">✅ DONE</span></div>
+                    <div class="item-row"><div class="item-text flex-1">Bank Account &amp; Gateway</div><span class="status-done">✅ DONE</span></div>
+                    <div class="item-row"><div class="item-text flex-1">Landline Number</div><span class="status-pending">⏳ PENDING</span></div>
+                </div>
+            </div>
+
+            <div class="pillar-card bg-slate-900 border border-slate-700 rounded-3xl p-6">
+                <div class="flex items-center gap-x-4 mb-8">
+                    <i class="fa-solid fa-users text-4xl text-teal-400"></i>
+                    <div class="font-display text-3xl tracking-tight">Team &amp; HR</div>
+                </div>
+                <div class="space-y-6 text-sm">
+                    <div class="item-row"><div class="item-text flex-1">Job Descriptions &amp; Contracts</div><span class="status-done">✅ DONE</span></div>
+                    <div onclick="toggleSingleExpand(this)" class="item-row cursor-pointer"><div class="item-text flex-1">Agent Recruitment</div><span class="status-half">HALFWAY</span></div>
+                    <div class="expandable-content">Candidates have been shortlisted. We cannot invite them for interviews yet because the physical premises is not fully ready.</div>
+                    <div class="item-row"><div class="item-text flex-1">Training Material &amp; Scripts</div><span class="status-done">✅ DONE</span></div>
+                    <div onclick="toggleSingleExpand(this)" class="item-row cursor-pointer"><div class="item-text flex-1">Operations Manager / Trainer</div><span class="status-pending">⏳ PENDING</span></div>
+                    <div class="expandable-content">Position still under discussion. We need to finalise the exact role and package before proceeding.</div>
+                </div>
+            </div>
+
+            <div class="pillar-card bg-slate-900 border border-slate-700 rounded-3xl p-6 md:col-span-2 xl:col-span-1">
+                <div class="flex items-center gap-x-4 mb-8">
+                    <i class="fa-solid fa-route text-4xl text-teal-400"></i>
+                    <div class="font-display text-3xl tracking-tight">Process &amp; Scripts</div>
+                </div>
+                <div class="space-y-6 text-sm">
+                    <div class="item-row"><div class="item-text flex-1">Call Scripts + POPIA Flow</div><span class="status-done">✅ DONE</span></div>
+                    <div class="item-row"><div class="item-text flex-1">Lead Qualification Process</div><span class="status-done">✅ DONE</span></div>
+                    <div onclick="toggleSingleExpand(this)" class="item-row cursor-pointer"><div class="item-text flex-1">NCR DC Partnership (iDocs + DebtHelp)</div><span class="status-pending">⏳ PENDING</span></div>
+                    <div class="expandable-content">This provides agent login credentials to iDocs and the NCR Debt Help System (DHS) for verification and clearance certificate processing.</div>
+                    <div onclick="toggleSingleExpand(this)" class="item-row cursor-pointer"><div class="item-text flex-1">Attorney Review</div><span class="status-pending">⏳ PENDING</span></div>
+                    <div class="expandable-content">Pending — Either a direct call from our company attorney or we will use the attorney assigned by our partnered Debt Counsellor.</div>
+                    <div onclick="toggleSingleExpand(this)" class="item-row cursor-pointer"><div class="item-text flex-1">Secure Payment Integration (NuPay)</div><span class="status-pending">⏳ PENDING</span></div>
+                    <div class="expandable-content">NuPay company profile approval and integration is pending. Full setup normally takes <strong>2 weeks</strong> once all documents are submitted.</div>
+                </div>
+            </div>
+
+            <div class="pillar-card bg-slate-900 border border-slate-700 rounded-3xl p-6">
+                <div class="flex items-center gap-x-4 mb-8">
+                    <i class="fa-solid fa-rocket text-4xl text-teal-400"></i>
+                    <div class="font-display text-3xl tracking-tight">Marketing &amp; Launch</div>
+                </div>
+                <div class="space-y-6 text-sm">
+                    <div onclick="toggleSingleExpand(this)" class="item-row cursor-pointer"><div class="item-text flex-1">Lead Generation Setup (ViCi Dialer)</div><span class="status-pending">⏳ PENDING</span></div>
+                    <div class="expandable-content">Related to ViCi Dialer configuration for outbound calls. Setup will begin immediately after telephony infrastructure is confirmed.</div>
+                    <div class="item-row"><div class="item-text flex-1">Compliance Marketing Review</div><span class="status-done">✅ DONE</span></div>
+                    <div onclick="toggleSingleExpand(this)" class="item-row cursor-pointer"><div class="item-text flex-1">Soft Launch Campaign</div><span class="status-pending">⏳ PENDING</span></div>
+                    <div class="expandable-content">Campaign creatives and compliance-checked scripts are prepared. Will go live once the first agents are onboarded and systems tested.</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="h-px bg-gradient-to-r from-transparent via-slate-700 to-transparent my-12"></div>
+
+        <!-- Timeline -->
+        <div class="bg-slate-900 border border-slate-700 rounded-3xl p-8 mb-12">
+            <h2 class="font-display text-3xl mb-6 flex items-center gap-x-3"><i class="fa-solid fa-calendar"></i> 90-Day Launch Timeline</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div><div class="font-medium text-teal-400">Days 1-30 (19 Feb – 20 Mar)</div><div class="text-xs text-emerald-400">Foundation Phase • Completed</div></div>
+                <div><div class="font-medium text-amber-400">Days 31-60 (21 Mar – 19 Apr) ← WE ARE HERE</div><div class="text-xs text-amber-400">Build Phase • 72% complete</div></div>
+                <div><div class="font-medium">Days 61-90 (20 Apr – 20 May)</div><div class="text-xs text-slate-400">Launch &amp; First Calls</div></div>
+            </div>
+        </div>
+
+        <!-- Outstanding -->
+        <div class="bg-red-950 border border-red-800 rounded-3xl p-8 blink-red">
+            <h2 class="font-display text-3xl text-red-400 mb-8 flex items-center gap-x-4"><i class="fa-solid fa-exclamation-triangle"></i> OUTSTANDING CRITICAL ITEMS</h2>
+            <ol class="space-y-5 text-sm md:text-base">
+                <li class="flex gap-x-5 items-start"><span class="font-mono text-red-400 w-7">01</span> NCR DC Partnership + Attorney Review</li>
+                <li class="flex gap-x-5 items-start"><span class="font-mono text-red-400 w-7">02</span> Complete Agent Recruitment &amp; Interviews</li>
+                <li class="flex gap-x-5 items-start"><span class="font-mono text-red-400 w-7">03</span> Register MR Consultant (PAYE + UIF)</li>
+                <li class="flex gap-x-5 items-start"><span class="font-mono text-red-400 w-7">04</span> Landline Number &amp; VoIP Setup</li>
+                <li class="flex gap-x-5 items-start"><span class="font-mono text-red-400 w-7">05</span> Marketing Lead / Lead Supplier Onboarding</li>
+            </ol>
+        </div>
+
+        <div class="text-center mt-16 text-xs text-slate-500">
+            Designed by Thynkverse • Updated 29 April 2026<br>
+            Always verify with your attorney and the NCR. Compliance is everything.
+        </div>
+    </div>
+
+    <script>
+        function updateCountdown() {
+            const target = new Date('2026-05-20T23:59:59').getTime();
+            const now = new Date().getTime();
+            const distance = Math.max(target - now, 0);
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            const html = `
+                <div class="countdown-item"><div class="countdown-numbers">${days}</div><div class="countdown-label">DAYS</div></div>
+                <div class="countdown-item"><div class="countdown-numbers">${hours.toString().padStart(2,'0')}</div><div class="countdown-label">HOURS</div></div>
+                <div class="countdown-item"><div class="countdown-numbers">${minutes.toString().padStart(2,'0')}</div><div class="countdown-label">MINUTES</div></div>
+                <div class="countdown-item"><div class="countdown-numbers">${seconds.toString().padStart(2,'0')}</div><div class="countdown-label">SECONDS</div></div>
+            `;
+            document.getElementById('countdown-display').innerHTML = html;
+        }
+        setInterval(updateCountdown, 1000);
+        updateCountdown();
+
+        function toggleCore(el) {
+            const content = document.getElementById('core-content');
+            content.classList.toggle('open');
+            el.textContent = content.classList.contains('open') ? 'Click here to collapse' : 'Click here to expand';
+        }
+        function toggleLaunch(el) {
+            const content = document.getElementById('launch-content');
+            content.classList.toggle('open');
+            el.textContent = content.classList.contains('open') ? 'Click here to collapse' : 'Click here to expand';
+        }
+        function toggleSingleExpand(el) {
+            const content = el.nextElementSibling;
+            document.querySelectorAll('.expandable-content').forEach(c => {
+                if (c !== content) c.classList.remove('open');
+            });
+            content.classList.toggle('open');
+        }
+    </script>
+</body>
+</html>

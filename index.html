@@ -1,1 +1,210 @@
-<!DOCTYPE html><html><head><title>Test Push</title></head><body><h1>Thynkverse Modern Site - Test Push Successful</h1><p>If you see this, the tool works.</p></body></html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thynkverse | Every Pixel Counts</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Space+Grotesk:wght@500;600;700&display=swap');
+        body { font-family: 'Inter', system_ui, sans-serif; }
+        .font-display { font-family: 'Space Grotesk', sans-serif; }
+        .hero-bg { 
+            background: linear-gradient(rgba(15,23,42,0.88), rgba(15,23,42,0.95)), 
+                        url('https://picsum.photos/id/1015/2000/1200') center/cover no-repeat fixed; 
+        }
+        .service-card { transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1); }
+        .service-card:hover { transform: translateY(-15px) scale(1.03); box-shadow: 0 25px 50px -12px rgb(45 212 191 / 0.4); }
+        .nav-link { position: relative; }
+        .nav-link:after { content: ''; position: absolute; width: 0; height: 2px; bottom: -2px; left: 0; background-color: rgb(45 212 191); transition: width 0.3s; }
+        .nav-link:hover:after { width: 100%; }
+    </style>
+</head>
+<body class="bg-slate-950 text-slate-200 overflow-x-hidden">
+
+    <!-- Navbar -->
+    <nav class="fixed top-0 w-full bg-slate-950/95 backdrop-blur-lg z-50 border-b border-slate-800">
+        <div class="max-w-7xl mx-auto px-6 py-5 flex justify-between items-center">
+            <div class="flex items-center gap-3">
+                <div class="w-11 h-11 bg-gradient-to-br from-teal-400 to-cyan-500 rounded-3xl flex items-center justify-center text-3xl font-bold shadow-lg">T</div>
+                <span class="font-display text-4xl tracking-tighter font-semibold">Thynkverse</span>
+            </div>
+            <div class="hidden md:flex items-center gap-10 text-base font-medium">
+                <a href="#services" class="nav-link hover:text-teal-400 transition">Services</a>
+                <a href="#process" class="nav-link hover:text-teal-400 transition">Process</a>
+                <a href="#testimonials" class="nav-link hover:text-teal-400 transition">Testimonials</a>
+                <a href="#contact" class="nav-link hover:text-teal-400 transition">Contact</a>
+            </div>
+            <button onclick="toggleMobileMenu()" class="md:hidden text-3xl"><i class="fa-solid fa-bars"></i></button>
+        </div>
+    </nav>
+
+    <!-- Mobile Menu -->
+    <div id="mobileMenu" class="hidden fixed inset-0 bg-slate-950 z-[60] pt-24 px-6 flex flex-col items-center gap-10 text-3xl">
+        <a href="#services" onclick="toggleMobileMenu()" class="hover:text-teal-400">Services</a>
+        <a href="#process" onclick="toggleMobileMenu()" class="hover:text-teal-400">Process</a>
+        <a href="#testimonials" onclick="toggleMobileMenu()" class="hover:text-teal-400">Testimonials</a>
+        <a href="#contact" onclick="toggleMobileMenu()" class="hover:text-teal-400">Contact</a>
+        <button onclick="toggleMobileMenu()" class="mt-12 px-12 py-4 border border-teal-400 rounded-3xl">Close Menu</button>
+    </div>
+
+    <!-- Hero -->
+    <section class="hero-bg min-h-screen flex items-center pt-20">
+        <div class="max-w-6xl mx-auto px-6 text-center">
+            <h1 class="font-display text-6xl md:text-7xl lg:text-[5.8rem] leading-none tracking-tighter mb-6">
+                Every Pixel<br><span class="text-teal-400">Counts</span>
+            </h1>
+            <p class="max-w-3xl mx-auto text-2xl md:text-3xl text-slate-300 mb-12">
+                We craft digital experiences that turn visitors into loyal customers.
+            </p>
+            <div class="flex flex-col sm:flex-row gap-5 justify-center items-center">
+                <a href="#contact" class="bg-teal-500 hover:bg-teal-400 text-black px-12 py-6 rounded-3xl text-xl font-semibold transition">Start Your Project</a>
+                <a href="#services" class="border border-white/60 hover:border-white px-12 py-6 rounded-3xl text-xl transition">Our Services</a>
+            </div>
+            <div class="mt-20 text-xs tracking-[3px] text-teal-300/60">THYNKVERSE PTY LTD • 2024/295300/07</div>
+        </div>
+    </section>
+
+    <!-- Services -->
+    <section id="services" class="py-28 bg-slate-900">
+        <div class="max-w-7xl mx-auto px-6">
+            <h2 class="font-display text-5xl text-center mb-4">What We Deliver</h2>
+            <p class="text-center text-slate-400 mb-16 max-w-md mx-auto">Solutions that actually move your business forward</p>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="service-card bg-slate-800/70 p-10 rounded-3xl border border-slate-700">
+                    <i class="fa-solid fa-bullseye text-5xl text-teal-400 mb-6"></i>
+                    <h3 class="text-2xl font-semibold mb-4">Digital Strategy</h3>
+                    <ul class="space-y-3 text-slate-400">
+                        <li>✓ Campaign Strategy & Planning</li>
+                        <li>✓ Content Creation & Copywriting</li>
+                        <li>✓ Social Media Management</li>
+                        <li>✓ AI Tools & Automation</li>
+                    </ul>
+                </div>
+                <div class="service-card bg-slate-800/70 p-10 rounded-3xl border border-slate-700">
+                    <i class="fa-solid fa-code text-5xl text-teal-400 mb-6"></i>
+                    <h3 class="text-2xl font-semibold mb-4">Web Development</h3>
+                    <ul class="space-y-3 text-slate-400">
+                        <li>✓ Modern Responsive Websites</li>
+                        <li>✓ E-commerce Stores</li>
+                        <li>✓ Landing Pages</li>
+                        <li>✓ Custom Web Applications</li>
+                    </ul>
+                </div>
+                <div class="service-card bg-slate-800/70 p-10 rounded-3xl border border-slate-700">
+                    <i class="fa-solid fa-chart-line text-5xl text-teal-400 mb-6"></i>
+                    <h3 class="text-2xl font-semibold mb-4">Growth Marketing</h3>
+                    <ul class="space-y-3 text-slate-400">
+                        <li>✓ SEO & Google Ads</li>
+                        <li>✓ Social Media Growth</li>
+                        <li>✓ Brand Identity</li>
+                        <li>✓ Analytics & Reporting</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Process -->
+    <section id="process" class="py-28">
+        <div class="max-w-5xl mx-auto px-6 text-center">
+            <h2 class="font-display text-5xl mb-6">3 Simple Steps to Success</h2>
+            <div class="grid md:grid-cols-3 gap-12 mt-16">
+                <div class="space-y-6">
+                    <div class="text-7xl font-display text-teal-400">01</div>
+                    <h3 class="text-3xl font-semibold">Discovery Call</h3>
+                    <p class="text-slate-400">We discuss your goals, challenges, and vision.</p>
+                </div>
+                <div class="space-y-6">
+                    <div class="text-7xl font-display text-teal-400">02</div>
+                    <h3 class="text-3xl font-semibold">Strategy & Design</h3>
+                    <p class="text-slate-400">We create a custom plan and stunning designs.</p>
+                </div>
+                <div class="space-y-6">
+                    <div class="text-7xl font-display text-teal-400">03</div>
+                    <h3 class="text-3xl font-semibold">Launch & Scale</h3>
+                    <p class="text-slate-400">We build, launch, and help you grow continuously.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section id="testimonials" class="py-28 bg-slate-900">
+        <div class="max-w-5xl mx-auto px-6">
+            <h2 class="font-display text-5xl text-center mb-16">What Our Clients Say</h2>
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="bg-slate-800 p-8 rounded-3xl">
+                    <p class="italic text-slate-300">"Thynkverse transformed our online presence completely. Sales increased 3x in 2 months."</p>
+                    <div class="mt-8 font-semibold">- Sarah M., Cape Town</div>
+                </div>
+                <div class="bg-slate-800 p-8 rounded-3xl">
+                    <p class="italic text-slate-300">"Professional, fast, and creative. Best web team we've ever worked with."</p>
+                    <div class="mt-8 font-semibold">- John D., Johannesburg</div>
+                </div>
+                <div class="bg-slate-800 p-8 rounded-3xl">
+                    <p class="italic text-slate-300">"They understood our brand vision perfectly. Highly recommended!"</p>
+                    <div class="mt-8 font-semibold">- Priya K., Durban</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact" class="py-28">
+        <div class="max-w-2xl mx-auto px-6">
+            <h2 class="font-display text-5xl text-center mb-12">Let's Create Something Amazing</h2>
+            <form id="contactForm" class="space-y-8">
+                <div>
+                    <input type="text" id="name" placeholder="Your Full Name" required
+                           class="w-full bg-slate-800 border border-slate-700 rounded-2xl px-7 py-6 focus:outline-none focus:border-teal-400">
+                </div>
+                <div>
+                    <input type="email" id="email" placeholder="Business Email" required
+                           class="w-full bg-slate-800 border border-slate-700 rounded-2xl px-7 py-6 focus:outline-none focus:border-teal-400">
+                </div>
+                <div>
+                    <textarea id="message" rows="6" placeholder="Tell us about your project..." required
+                              class="w-full bg-slate-800 border border-slate-700 rounded-3xl px-7 py-6 focus:outline-none focus:border-teal-400"></textarea>
+                </div>
+                <button type="submit"
+                        class="w-full bg-teal-500 hover:bg-teal-400 text-black py-7 rounded-3xl text-xl font-semibold transition">
+                    Send Message – Let's Talk
+                </button>
+            </form>
+        </div>
+    </section>
+
+    <footer class="bg-black py-12 text-center text-slate-500 text-sm">
+        © 2026 Thynkverse Pty Ltd. All Rights Reserved.
+    </footer>
+
+    <script>
+        // Mobile Menu Toggle
+        function toggleMobileMenu() {
+            document.getElementById('mobileMenu').classList.toggle('hidden');
+        }
+
+        // Contact Form
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert("✅ Thank you! Your message has been received. We'll get back to you within 24 hours.");
+            this.reset();
+        });
+
+        // Smooth scrolling for all anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                if (this.getAttribute('href') !== '#') {
+                    e.preventDefault();
+                    document.querySelector(this.getAttribute('href')).scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
